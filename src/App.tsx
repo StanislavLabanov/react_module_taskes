@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FC } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Fetch from './pages/Fetch';
+import Hover from './pages/Hover';
+import LocalStorage from './pages/LocalStorage';
+import Toggle from './pages/Toggle';
+import ViewportSize from './pages/ViewportSize';
+import WindowScroll from './pages/WindowScroll';
+import Index from './pages/Index';
 
-function App() {
+const App: FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="fetch" element={<Fetch />} />
+        <Route path="hover" element={<Hover />} />
+        <Route path="local_storage" element={<LocalStorage />} />
+        <Route path="toggle" element={<Toggle />} />
+        <Route path="viewport_size" element={<ViewportSize />} />
+        <Route path="window_scroll" element={<WindowScroll />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
